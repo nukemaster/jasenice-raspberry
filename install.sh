@@ -8,14 +8,7 @@ NC='\033[0m'
 ## Check if python is installed
 echo -e "${GREEN}Start:${NC} Check python"
 sudo apt-get install git python3 python3-pip python3-tzlocal python3-sdnotify python3-colorama python3-unidecode python3-apt python3-paho-mqtt python3-requests
-if command -v python3 >/dev/null 2>&1; then
-    echo -e "\tPython is already installed on this system."
-else
-    # Install python
-    echo "\tPython is not installed on this system. Installing now..."
-    sudo apt-get update
-    sudo apt-get install python3
-fi
+sudo apt-get install systemd
 echo -e "${RED}\u2713 End:${NC} Check python"
 
 ## install python modules that are required
