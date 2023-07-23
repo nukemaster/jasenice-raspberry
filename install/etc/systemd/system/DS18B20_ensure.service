@@ -1,0 +1,9 @@
+[Unit]
+Description=DS18B20_ensure
+
+[Service]
+ExecStart=/usr/bin/python /etc/jasenice/DS18B20_ensureOn.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

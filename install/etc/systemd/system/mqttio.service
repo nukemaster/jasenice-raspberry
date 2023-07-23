@@ -1,0 +1,9 @@
+[Unit]
+Description=mqttio
+
+[Service]
+ExecStart=/usr/bin/python -m mqtt_io /etc/jasenice/mqttio_config.yml
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

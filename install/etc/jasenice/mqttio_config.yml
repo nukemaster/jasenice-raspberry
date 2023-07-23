@@ -1,0 +1,64 @@
+
+mqtt:
+  host: 192.168.0.87
+  topic_prefix: home
+  user: hass
+  password: Ab123456
+  ha_discovery:
+    enabled: yes
+    name: raspberry1
+
+gpio_modules:
+  - name: rpi
+    module: raspberrypi
+
+digital_inputs:
+  - name: rele
+    module: rpi
+    pin: 3
+
+digital_outputs:
+  - name: rele
+    module: rpi
+    pin: 3
+
+sensor_modules:
+  - name: dht
+    module: dht22
+    type: DHT11
+    pin: 15
+  - name: ds18b20
+    module: ds18b
+    type: DS18B20
+    address: 032097794d3a
+  - name: ds18b20_2
+    module: ds18b
+    type: DS18B20
+    address: 01191ef8e4bd
+
+sensor_inputs:
+  - name: dht_temp
+    module: dht
+    ha_discovery:
+      name: dht temperature sensor
+      device_class: temperature
+      unit_of_measurement: °C
+  - name: dht_humidity
+    module: dht
+    type: humidity
+    ha_discovery:
+      name: dht humidity sensor
+      device_class: humidity
+      unit_of_measurement: "%"
+  - name: d18b20_1
+    module: ds18b20
+    ha_discovery:
+      name: d18b20 temperature sensor
+      device_class: temperature
+      unit_of_measurement: °C
+  - name: ds18b20_2_temp
+    module: ds18b20_2
+    ha_discovery:
+      name: d18b20 temperature sensor
+      device_class: temperature
+      unit_of_measurement: °C

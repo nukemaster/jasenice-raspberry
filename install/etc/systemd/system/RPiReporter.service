@@ -1,0 +1,9 @@
+[Unit]
+Description=mqttio
+
+[Service]
+ExecStart=/usr/bin/python /opt/RPi-Reporter-MQTT2HA-Daemon/ISP-RPi-mqtt-daemon.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,22 @@
+## make mqttio always run
+# install systemd to manage running processes
+sudo apt-get install systemd
+
+# copy service file
+sudo cp mqttio.service /etc/systemd/system/mqttio.service
+
+# enable service
+sudo systemctl enable mqttio.service
+sudo systemctl start mqttio.service
+
+# to check status of service 
+watch systemctl status mqttio.service
+
+## periodicly check / reset one wire sensors
+# create crontab
+touch /var/spool/cron/crontabs/pi
+# add script to crontab
+(crontab -l ; echo "1 * * * * /home/pi/Documents/mqtt/DS18B20_ensureOn.py") | crontab -
+
+# can check
+crontab -e
